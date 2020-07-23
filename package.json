@@ -1,0 +1,68 @@
+{
+  "name": "@vtex/cli-plugin-template",
+  "description": "vtex plugin template",
+  "version": "0.0.0",
+  "bugs": "https://github.com/vtex/cli-plugin-template/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/plugin-help": "^3",
+    "@types/jest": "^26.0.3",
+    "@types/node": "^14.0.14",
+    "eslint": "^6.8.0",
+    "eslint-config-oclif": "^3.1",
+    "eslint-config-vtex": "^12.3.0",
+    "globby": "^10",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "nodemon-notifier-cli": "https://github.com/Slessi/nodemon-notifier-cli.git",
+    "prettier": "^2.0.1",
+    "ts-jest": "^25.2.1",
+    "ts-node": "^8",
+    "typescript": "^3.8.2",
+    "vtex": "^2.105.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/build",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/yarn.lock"
+  ],
+  "homepage": "https://github.com/vtex/cli-plugin-template",
+  "keywords": [
+    "oclif-plugin"
+  ],
+  "license": "MIT",
+  "oclif": {
+    "commands": "./build/commands",
+    "bin": "oclif-example",
+    "devPlugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "vtex/cli-plugin-template",
+  "scripts": {
+    "build-clean": "rm -rf build",
+    "build-incremental": "tsc --incremental",
+    "build": "yarn build-clean && yarn tsc && OCLIF_COMPILATION=true yarn oclif-dev manifest",
+    "ci:prettier-check": "prettier --check --config ./.prettierrc \"./src/**/*.{ts,tsx,js,jsx,json}\"",
+    "ci:test": "yarn test --ci",
+    "format-lint": "yarn format && yarn lint",
+    "format": "prettier --config ./.prettierrc --write \"**/*.{ts,js,json}\"",
+    "lint": "eslint ./src --cache --ext .ts --config .eslintrc",
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint . --ext .ts --config .eslintrc",
+    "prepack": "rm -rf build && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepublishOnly": "bash ./scripts/publishLock.sh",
+    "test": "jest --passWithNoTests",
+    "version": "oclif-dev readme && git add README.md",
+    "watch": "yarn build-clean && yarn nodemon"
+  }
+}

@@ -1,0 +1,13 @@
+.DS_Store
+.eslintcache
+.vscode
+*-debug.log
+*-error.log
+/.nyc_output
+/build
+/dist
+/tmp
+coverage
+node_modules
+oclif.manifest.json
+tsconfig.tsbuildinfo
