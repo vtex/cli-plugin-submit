@@ -1,8 +1,8 @@
 {
-  "name": "@vtex/cli-plugin-template",
-  "description": "vtex plugin template",
-  "version": "0.0.0",
-  "bugs": "https://github.com/vtex/cli-plugin-template/issues",
+  "name": "@vtex/cli-plugin-submit",
+  "description": "Toolbelt plugin for the 'submit' command",
+  "version": "0.0.1",
+  "bugs": "https://github.com/vtex/cli-plugin-submit/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -35,7 +35,7 @@
     "/oclif.manifest.json",
     "/yarn.lock"
   ],
-  "homepage": "https://github.com/vtex/cli-plugin-template",
+  "homepage": "https://github.com/vtex/cli-plugin-submit",
   "keywords": [
     "oclif-plugin"
   ],
@@ -47,7 +47,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "vtex/cli-plugin-template",
+  "repository": "vtex/cli-plugin-submit",
   "scripts": {
     "build-clean": "rm -rf build",
     "build-incremental": "tsc --incremental",
