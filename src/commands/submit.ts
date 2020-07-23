@@ -1,6 +1,8 @@
 import { Command, flags } from '@oclif/command'
 import { CustomCommand } from 'vtex'
 
+import { submitApp } from '../modules/submit'
+
 export default class Submit extends Command {
   static description = 'Submits the current app, or an specified one, to validation from VTEX App Store team'
 
@@ -20,6 +22,6 @@ export default class Submit extends Command {
       args: { appId },
     } = this.parse(Submit)
 
-    this.log(appId)
+    await submitApp(appId)
   }
 }
