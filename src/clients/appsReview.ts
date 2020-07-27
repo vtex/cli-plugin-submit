@@ -1,5 +1,5 @@
 import { InstanceOptions, AppClient, IOContext } from '@vtex/api'
-import { IOClientFactory } from 'vtex/build/lib/clients/IOClients/IOClientFactory'
+import { IOClientFactory } from 'vtex/build/api/clients/IOClients/IOClientFactory'
 
 export default class AppsReview extends AppClient {
   public static readonly DEFAULT_TIMEOUT = 30000
@@ -21,7 +21,6 @@ export default class AppsReview extends AppClient {
 
   public submitApp = async (data: SubmitInput) => {
     const response = await this.http.post<SubmitResponse>(this.routes.submissions(), data)
-
     return response.pullRequestUrl
   }
 }
