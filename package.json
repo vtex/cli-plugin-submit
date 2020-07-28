@@ -20,7 +20,9 @@
     "eslint-config-oclif": "^3.1",
     "eslint-config-vtex": "^12.7.1",
     "globby": "^10",
+    "husky": "^4.2.5",
     "jest": "^25.1.0",
+    "lint-staged": "^10.2.11",
     "nodemon": "^2.0.2",
     "nodemon-notifier-cli": "https://github.com/Slessi/nodemon-notifier-cli.git",
     "prettier": "^2.0.5",
@@ -67,5 +69,19 @@
     "test": "jest --passWithNoTests",
     "version": "oclif-dev readme && git add README.md",
     "watch": "yarn build-clean && yarn nodemon"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,tsx,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
   }
 }
