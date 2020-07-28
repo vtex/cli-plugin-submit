@@ -1,1 +1,9 @@
-{ "extends": "vtex" }
+{
+  "extends": "vtex",
+  "rules": {
+    "prettier/prettier": ["error", {
+        "endOfLine":"auto"
+      }]
+  }
+}
+
