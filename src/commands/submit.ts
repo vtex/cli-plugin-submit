@@ -4,7 +4,8 @@ import { CustomCommand } from 'vtex'
 import { submitApp } from '../modules/submit'
 
 export default class Submit extends Command {
-  static description = 'Submits the current app, or an specified one, to validation from VTEX App Store team'
+  static description =
+    'Submits the current app, or an specified one, to validation from VTEX App Store team'
 
   static examples = [`vtex submit`, `vtex submit myvendor.myapp@1.2.3`]
 
