@@ -1,5 +1,5 @@
 import { InstanceOptions, AppClient, IOContext } from '@vtex/api'
-import { IOClientFactory } from 'vtex/build/api/clients/IOClients/IOClientFactory'
+import { IOClientFactory } from 'vtex'
 
 export default class AppsReview extends AppClient {
   public static readonly DEFAULT_TIMEOUT = 30000
