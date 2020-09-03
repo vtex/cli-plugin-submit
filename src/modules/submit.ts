@@ -33,7 +33,7 @@ export const submitApp = async (appToSubmit?: string) => {
   const appInstalledArray = filterBySource('installation')(appArray)
 
   if (!appInstalledArray.find((item) => item.app === appId)) {
-    logger.error("We didn't find the app installed on this account.")
+    logger.error("The app you're trying to submit must be installed on this workspace")
 
     return
   }
