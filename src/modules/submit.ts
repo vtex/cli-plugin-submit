@@ -1,16 +1,42 @@
 import * as inquirer from 'inquirer'
+import { prop, filter, compose, equals } from 'ramda'
 import { logger } from 'vtex'
 import { ManifestEditor } from 'vtex/build/api/manifest'
+import { SessionManager } from 'vtex/build/api/session/SessionManager'
+import { createAppsClient } from 'vtex/build/api/clients/IOClients/infra/Apps'
 
-import AppsReview from '../clients/appsReview'
+import AppStoreSeller from '../clients/appStoreSeller'
 
 export const submitApp = async (appToSubmit?: string) => {
   const appId =
     appToSubmit ?? (await ManifestEditor.getManifestEditor()).appLocator
 
-  logger.info(
-    "We will open a Pull Request with your app's code. You'll be able to check the review status directly from Gitub."
-  )
+  // validates if the user is logged in the same account of the app's vendor
+  const [vendorAndName] = appId.split('@')
+  const [appVendor] = vendorAndName.split('.')
+  const accountVendor = SessionManager.getSingleton().account
+
+  if (appVendor !== accountVendor) {
+    logger.error(
+      "You are trying to submit this app in an account that differs from the app's vendor."
+    )
+
+    return
+  }
+
+  // validates if the app is installed on the account
+  const { listApps } = createAppsClient()
+  const appArray = await listApps().then(prop('data'))
+  const filterBySource = (source: string) =>
+    filter(compose<any, string, boolean>(equals(source), prop('_source')))
+
+  const appInstalledArray = filterBySource('installation')(appArray)
+
+  if (!appInstalledArray.find((item) => item.app === appId)) {
+    logger.error("We didn't find the app installed on this account.")
+
+    return
+  }
 
   const { githubUsername } = await inquirer.prompt([
     {
@@ -29,16 +55,20 @@ export const submitApp = async (appToSubmit?: string) => {
     },
   ])
 
+  const appStoreSellerClient = AppStoreSeller.createClient()
+
   logger.info('We are validating your data, please wait a few seconds')
 
-  const client = AppsReview.createClient()
-
   try {
-    const pullRequestUrl = await client.submitApp({
+    const pullRequestUrl = await appStoreSellerClient.submitApp({
       appId,
       githubUsername,
       liveUrl,
     })
+
+    logger.info(
+      "We will open a Pull Request with your app's code. You'll be able to check the review status directly from Gitub."
+    )
 
     logger.info(`We've submitted the app ${appToSubmit} to review!`)
     logger.info(
@@ -46,6 +76,16 @@ export const submitApp = async (appToSubmit?: string) => {
     )
     logger.info(`The pull request for this version is at: ${pullRequestUrl}`)
   } catch (e) {
-    logger.error(e.response.data.message)
+    const status = e.response?.status
+
+    if (status === 404) {
+      logger.error("We couldn't find the App Store Seller app installed.")
+    } else if (status === 412) {
+      logger.error(
+        'We found the App Store Seller installed, but you need to do the setup.'
+      )
+    } else {
+      logger.error(e.response?.data)
+    }
   }
 }
