@@ -79,7 +79,7 @@ export const submitApp = async (appToSubmit?: string) => {
     const status = e.response?.status
 
     if (status === 404) {
-      logger.error("We couldn't find the App Store Seller app installed.")
+      logger.error("You must have the `vtex.app-store-seller` app installed in order to submit apps.")
     } else if (status === 412) {
       logger.error(
         'We found the App Store Seller installed, but you need to do the setup.'
