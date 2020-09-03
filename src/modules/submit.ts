@@ -82,7 +82,7 @@ export const submitApp = async (appToSubmit?: string) => {
       logger.error("You must have the `vtex.app-store-seller` app installed in order to submit apps.")
     } else if (status === 412) {
       logger.error(
-        'We found the App Store Seller installed, but you need to do the setup.'
+        'This account is not configured to submit apps to VTEX App Store. Please, follow the steps described on: '
       )
     } else {
       logger.error(e.response?.data)
