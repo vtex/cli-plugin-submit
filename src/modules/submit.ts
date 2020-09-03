@@ -32,8 +32,10 @@ export const submitApp = async (appToSubmit?: string) => {
 
   const appInstalledArray = filterBySource('installation')(appArray)
 
-  if (!appInstalledArray.find((item) => item.app === appId)) {
-    logger.error("The app you're trying to submit must be installed on this workspace")
+  if (!appInstalledArray.some(({ app }) => app === appId)) {
+    logger.error(
+      "The app you're trying to submit must be installed on this workspace."
+    )
 
     return
   }
@@ -79,10 +81,12 @@ export const submitApp = async (appToSubmit?: string) => {
     const status = e.response?.status
 
     if (status === 404) {
-      logger.error("You must have the `vtex.app-store-seller` app installed in order to submit apps.")
+      logger.error(
+        'You must have the `vtex.app-store-seller` app installed in order to submit apps.'
+      )
     } else if (status === 412) {
       logger.error(
-        'This account is not configured to submit apps to VTEX App Store. Please, follow the steps described on: '
+        'This account is not configured to submit apps to VTEX App Store. Please, follow the steps described on: http://bit.ly/vtex-app-store-pub'
       )
     } else {
       logger.error(e.response?.data)
