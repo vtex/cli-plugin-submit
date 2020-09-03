@@ -28,6 +28,7 @@ export const submitApp = async (appToSubmit?: string) => {
   const { listApps } = createAppsClient()
   const appArray = await listApps().then(prop('data'))
   const filterBySource = (source: string) =>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     filter(compose<any, string, boolean>(equals(source), prop('_source')))
 
   const appInstalledArray = filterBySource('installation')(appArray)
