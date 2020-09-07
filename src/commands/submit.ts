@@ -4,20 +4,21 @@ import { CustomCommand } from 'vtex'
 import { submitApp } from '../modules/submit'
 
 export default class Submit extends Command {
-  static description = 'Submits the current app, or an specified one, to validation from VTEX App Store team'
+  public static description =
+    'Submits the current app, or an specified one, to validation from VTEX App Store team'
 
-  static examples = [`vtex submit`, `vtex submit myvendor.myapp@1.2.3`]
+  public static examples = [`vtex submit`, `vtex submit myvendor.myapp@1.2.3`]
 
-  static flags = {
+  public static flags = {
     ...CustomCommand.globalFlags,
     help: flags.help({ char: 'h' }),
   }
 
-  static strict = false
+  public static strict = false
 
-  static args = [{ name: 'appId', required: false }]
+  public static args = [{ name: 'appId', required: false }]
 
-  async run() {
+  public async run() {
     const {
       args: { appId },
     } = this.parse(Submit)

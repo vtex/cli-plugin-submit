@@ -6,24 +6,31 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "tslib": "^1"
+    "inquirer": "^7.3.3",
+    "tslib": "^2.0.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
     "@oclif/plugin-help": "^3",
+    "@types/inquirer": "^7.3.0",
     "@types/jest": "^26.0.3",
     "@types/node": "^14.0.14",
-    "eslint": "^6.8.0",
+    "@types/ramda": "^0.27.14",
+    "@vtex/prettier-config": "^0.3.1",
+    "@vtex/tsconfig": "^0.5.0",
+    "eslint": "^7.5.0",
     "eslint-config-oclif": "^3.1",
-    "eslint-config-vtex": "^12.3.0",
+    "eslint-config-vtex": "^12.7.1",
     "globby": "^10",
+    "husky": "^4.2.5",
     "jest": "^25.1.0",
+    "lint-staged": "^10.2.11",
     "nodemon": "^2.0.2",
     "nodemon-notifier-cli": "https://github.com/Slessi/nodemon-notifier-cli.git",
-    "prettier": "^2.0.1",
+    "prettier": "^2.0.5",
     "ts-jest": "^25.2.1",
     "ts-node": "^8",
-    "typescript": "^3.8.2",
+    "typescript": "^3.9.7",
     "vtex": "^2.105.1"
   },
   "engines": {
@@ -64,5 +71,19 @@
     "test": "jest --passWithNoTests",
     "version": "oclif-dev readme && git add README.md",
     "watch": "yarn build-clean && yarn nodemon"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,tsx,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
   }
 }
