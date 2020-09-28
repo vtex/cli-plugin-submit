@@ -1,11 +1,41 @@
 import * as inquirer from 'inquirer'
-import { prop, filter, compose, equals } from 'ramda'
+import { compose, equals, filter, prop } from 'ramda'
 import { logger } from 'vtex'
+import { createAppsClient } from 'vtex/build/api/clients/IOClients/infra/Apps'
 import { ManifestEditor } from 'vtex/build/api/manifest'
 import { SessionManager } from 'vtex/build/api/session/SessionManager'
-import { createAppsClient } from 'vtex/build/api/clients/IOClients/infra/Apps'
 
 import AppStoreSeller from '../clients/appStoreSeller'
+
+const handleSubmitAppError = (e: any) => {
+  const response = e?.response
+  const status = response?.status
+
+  switch (status) {
+    case 400: {
+      logger.error('%o', JSON.parse(response?.data?.message))
+      break
+    }
+
+    case 404: {
+      logger.error(
+        'You must have the `vtex.app-store-seller` app installed in order to submit apps.'
+      )
+      break
+    }
+
+    case 412: {
+      logger.error(
+        'This account is not configured to submit apps to VTEX App Store. Please, follow the steps described on: http://bit.ly/vtex-app-store-pub'
+      )
+      break
+    }
+
+    default: {
+      logger.error(e.response?.data)
+    }
+  }
+}
 
 export const submitApp = async (appToSubmit?: string) => {
   const appId =
@@ -79,18 +109,6 @@ export const submitApp = async (appToSubmit?: string) => {
     )
     logger.info(`The pull request for this version is at: ${pullRequestUrl}`)
   } catch (e) {
-    const status = e.response?.status
-
-    if (status === 404) {
-      logger.error(
-        'You must have the `vtex.app-store-seller` app installed in order to submit apps.'
-      )
-    } else if (status === 412) {
-      logger.error(
-        'This account is not configured to submit apps to VTEX App Store. Please, follow the steps described on: http://bit.ly/vtex-app-store-pub'
-      )
-    } else {
-      logger.error(e.response?.data)
-    }
+    handleSubmitAppError(e)
   }
 }
