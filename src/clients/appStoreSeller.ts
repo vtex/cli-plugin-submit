@@ -1,4 +1,4 @@
-import { InstanceOptions, AppClient, IOContext } from '@vtex/api'
+import { AppClient, InstanceOptions, IOContext } from '@vtex/api'
 import { IOClientFactory } from 'vtex'
 
 export default class AppStoreSeller extends AppClient {
@@ -42,7 +42,7 @@ type SubmitInput = {
   githubUsername: string
 }
 
-type SubmitResponse = {
+export type SubmitResponse = {
   created: boolean
   pullRequestUrl: string
 }
