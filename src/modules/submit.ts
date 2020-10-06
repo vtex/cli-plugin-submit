@@ -6,6 +6,7 @@ import { ManifestEditor } from 'vtex/build/api/manifest'
 import { SessionManager } from 'vtex/build/api/session/SessionManager'
 
 import AppStoreSeller from '../clients/appStoreSeller'
+import { Messages } from '../lib/constants/Messages'
 
 const handleSubmitAppError = (e: any) => {
   const response = e?.response
@@ -13,21 +14,17 @@ const handleSubmitAppError = (e: any) => {
 
   switch (status) {
     case 400: {
-      logger.error('%o', JSON.parse(response?.data?.message))
+      logger.error(Messages.OBJECT_FORMAT, JSON.parse(response?.data?.message))
       break
     }
 
     case 404: {
-      logger.error(
-        'You must have the `vtex.app-store-seller` app installed in order to submit apps.'
-      )
+      logger.error(Messages.APP_STORE_SELLER_NOT_FOUND)
       break
     }
 
     case 412: {
-      logger.error(
-        'This account is not configured to submit apps to VTEX App Store. Please, follow the steps described on: http://bit.ly/vtex-app-store-pub'
-      )
+      logger.error(Messages.APP_STORE_SELLER_NOT_CONFIGURED)
       break
     }
 
@@ -47,9 +44,7 @@ export const submitApp = async (appToSubmit?: string) => {
   const accountVendor = SessionManager.getSingleton().account
 
   if (appVendor !== accountVendor) {
-    logger.error(
-      "You are trying to submit this app in an account that differs from the app's vendor."
-    )
+    logger.error(Messages.DIFFERENT_VENDORS)
 
     return
   }
@@ -64,9 +59,7 @@ export const submitApp = async (appToSubmit?: string) => {
   const appInstalledArray = filterBySource('installation')(appArray)
 
   if (!appInstalledArray.some(({ app }) => app === appId)) {
-    logger.error(
-      "The app you're trying to submit must be installed on this workspace."
-    )
+    logger.error(Messages.APP_NOT_INSTALLED)
 
     return
   }
@@ -74,7 +67,7 @@ export const submitApp = async (appToSubmit?: string) => {
   const { githubUsername } = await inquirer.prompt([
     {
       name: 'githubUsername',
-      message: 'Enter your Github username',
+      message: Messages.ENTER_GITHUB_USERNAME,
       type: 'input',
     },
   ])
@@ -82,15 +75,14 @@ export const submitApp = async (appToSubmit?: string) => {
   const { liveUrl } = await inquirer.prompt([
     {
       name: 'liveUrl',
-      message:
-        'Enter a URL from where we can test your app working. It can be in your workspace',
+      message: Messages.ENTER_STATUS_CHECK_URL,
       type: 'input',
     },
   ])
 
   const appStoreSellerClient = AppStoreSeller.createClient()
 
-  logger.info('We are validating your data, please wait a few seconds')
+  logger.info(Messages.WAIT_VALIDATION)
 
   try {
     const pullRequestUrl = await appStoreSellerClient.submitApp({
@@ -99,15 +91,11 @@ export const submitApp = async (appToSubmit?: string) => {
       liveUrl,
     })
 
-    logger.info(
-      "We will open a Pull Request with your app's code. You'll be able to check the review status directly from Gitub."
-    )
+    logger.info(Messages.OPENING_PULL_REQUEST)
 
-    logger.info(`We've submitted the app ${appToSubmit} to review!`)
-    logger.info(
-      "You'll receive an e-mail inviting you to the newly-created repository where you'll be able to follow the status"
-    )
-    logger.info(`The pull request for this version is at: ${pullRequestUrl}`)
+    logger.info(Messages.appSubmitted(appToSubmit))
+    logger.info(Messages.CHECK_EMAIL)
+    logger.info(Messages.checkPullRequestUrl(pullRequestUrl))
   } catch (e) {
     handleSubmitAppError(e)
   }
