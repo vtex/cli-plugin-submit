@@ -1,9 +1,6 @@
 import * as inquirer from 'inquirer'
 import { compose, equals, filter, prop } from 'ramda'
-import { logger } from 'vtex'
-import { createAppsClient } from 'vtex/build/api/clients/IOClients/infra/Apps'
-import { ManifestEditor } from 'vtex/build/api/manifest'
-import { SessionManager } from 'vtex/build/api/session/SessionManager'
+import { createAppsClient, logger, ManifestEditor, SessionManager } from 'vtex'
 
 import AppStoreSeller from '../clients/appStoreSeller'
 import { Messages } from '../lib/constants/Messages'
