@@ -1,7 +1,5 @@
 import * as inquirer from 'inquirer'
-import { compose, equals, filter, prop } from 'ramda'
 import { logger } from 'vtex'
-import { createAppsClient } from 'vtex/build/api/clients/IOClients/infra/Apps'
 import { ManifestEditor } from 'vtex/build/api/manifest'
 import { SessionManager } from 'vtex/build/api/session/SessionManager'
 
@@ -45,21 +43,6 @@ export const submitApp = async (appToSubmit?: string) => {
 
   if (appVendor !== accountVendor) {
     logger.error(Messages.DIFFERENT_VENDORS)
-
-    return
-  }
-
-  // validates if the app is installed on the account
-  const { listApps } = createAppsClient()
-  const appArray = await listApps().then(prop('data'))
-  const filterBySource = (source: string) =>
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    filter(compose<any, string, boolean>(equals(source), prop('_source')))
-
-  const appInstalledArray = filterBySource('installation')(appArray)
-
-  if (!appInstalledArray.some(({ app }) => app === appId)) {
-    logger.error(Messages.APP_NOT_INSTALLED)
 
     return
   }
