@@ -11,8 +11,6 @@ export const Messages = {
   DIFFERENT_VENDORS:
     "You are trying to submit this app in an account that differs from the app's vendor.",
 
-  APP_NOT_INSTALLED:
-    "The app you're trying to submit must be installed on this workspace.",
   ENTER_GITHUB_USERNAME: 'Enter your Github username',
   ENTER_STATUS_CHECK_URL:
     'Enter a URL from where we can test your app working. It can be in your workspace',
