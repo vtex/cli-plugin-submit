@@ -106,7 +106,7 @@ export const submitApp = async (appToSubmit?: string) => {
 function isFirstPartyApp(runningAccount: string, appVendor: string) {
   return (
     (runningAccount === APP_STORE_ACCOUNT ||
-      runningAccount.includes(VTEX_VENDOR)) &&
+      runningAccount.startsWith(VTEX_VENDOR)) &&
     appVendor === VTEX_VENDOR
   )
 }
