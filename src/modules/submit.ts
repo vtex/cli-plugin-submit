@@ -5,6 +5,9 @@ import { createAppsClient, logger, ManifestEditor, SessionManager } from 'vtex'
 import AppStoreSeller from '../clients/appStoreSeller'
 import { Messages } from '../lib/constants/Messages'
 
+const VTEX_VENDOR = 'vtex'
+const APP_STORE_ACCOUNT = 'extensions'
+
 const handleSubmitAppError = (e: any) => {
   const response = e?.response
   const status = response?.status
@@ -40,7 +43,9 @@ export const submitApp = async (appToSubmit?: string) => {
   const [appVendor] = vendorAndName.split('.')
   const accountVendor = SessionManager.getSingleton().account
 
-  if (appVendor !== accountVendor) {
+  if (
+    !(appVendor === accountVendor || isFirstPartyApp(accountVendor, appVendor))
+  ) {
     logger.error(Messages.DIFFERENT_VENDORS)
 
     return
@@ -96,4 +101,12 @@ export const submitApp = async (appToSubmit?: string) => {
   } catch (e) {
     handleSubmitAppError(e)
   }
+}
+
+function isFirstPartyApp(runningAccount: string, appVendor: string) {
+  return (
+    (runningAccount === APP_STORE_ACCOUNT ||
+      runningAccount.includes(VTEX_VENDOR)) &&
+    appVendor === VTEX_VENDOR
+  )
 }
