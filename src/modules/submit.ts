@@ -14,7 +14,7 @@ const handleSubmitAppError = (e: any) => {
 
   switch (status) {
     case 400: {
-      logger.error(Messages.OBJECT_FORMAT, JSON.parse(response?.data?.message))
+      logger.error(JSON.stringify(response?.data?.message))
       break
     }
 
