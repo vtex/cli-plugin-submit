@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Make `ramda` a explicit dependency.
+
 ## [0.2.0] - 2020-11-18
 
 ### Changed
@@ -14,12 +18,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `extensions` and `vtex*` accounts can submit `vtex` apps as allowed first party apps vendors
 
 ## [0.1.2] - 2020-10-07
+
 ### Fixed
+
 - Fix relative imports
 - Update `vtex`
 
 ## [0.1.1] - 2020-10-06
+
 ### Added
+
 - Handle App Store validation errors
 
 ## [0.1.0] - 2020-09-07
