@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Update `vtex` to 3.7.2-beta
+
 ## [0.2.0] - 2020-11-18
 
 ### Changed
