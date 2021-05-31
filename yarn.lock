@@ -1226,10 +1226,10 @@
     ramda "^0.27.1"
     tslib "^1"
 
-"@vtex/cli-plugin-plugins@^1.13.0":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@vtex/cli-plugin-plugins/-/cli-plugin-plugins-1.13.1.tgz#a6a3c2762ad9e7830b84414a38f0479200b05461"
-  integrity sha512-RBAlbSko2/OA47vVbIeCY8JdK1AK/YQ4Z5OpYbd0stuVvKdyDeRXhznraE1XstLOaz3gGRVvRezZqzDREYQW7Q==
+"@vtex/cli-plugin-plugins@^1.13.2":
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/@vtex/cli-plugin-plugins/-/cli-plugin-plugins-1.13.2.tgz#e9f028f74fda276a5450010f6a1d1a2ee4d535e1"
+  integrity sha512-SC5IPBHpF8oKd0jVcz/q/Ufiiy66qFR5rQN4WXQaHqDcqrS0pEPFP09sHjL+IhCv2LIuJL1t4B+Uv9SYszdktg==
   dependencies:
     "@oclif/color" "^0.x"
     "@oclif/command" "^1.5.12"
@@ -9004,10 +9004,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vtex@^3.7.2-beta:
-  version "3.7.2-beta"
-  resolved "https://registry.yarnpkg.com/vtex/-/vtex-3.7.2-beta.tgz#383086df829b8e5e51c8d60b587a7e9717f1176b"
-  integrity sha512-gmqo77sAeDcVcLFRWapro+audfr71LxwAbki9W0qsmmYof6SfNOFcTECX/V/m9fWsUzf2ddo62FhhRmXDcEx7A==
+vtex@3.7.3-beta:
+  version "3.7.3-beta"
+  resolved "https://registry.yarnpkg.com/vtex/-/vtex-3.7.3-beta.tgz#053b56f5e12d1354f3105be48d4c111444c94f2a"
+  integrity sha512-P8+8A8sd7ALfiBMeE4yrwyooabZu2u9xq/wM2HCCXIbG5LsudRHhtww6sWeBAYsTZt3q3xRpdCYTeIUES86q6g==
   dependencies:
     "@oclif/command" "^1.8.0"
     "@oclif/config" "^1.17.0"
@@ -9019,7 +9019,7 @@ vtex@^3.7.2-beta:
     "@vtex/cli-plugin-deploy" "^0.3.1"
     "@vtex/cli-plugin-deps" "^0.1.1"
     "@vtex/cli-plugin-edition" "^0.1.1"
-    "@vtex/cli-plugin-plugins" "^1.13.0"
+    "@vtex/cli-plugin-plugins" "^1.13.2"
     "@vtex/cli-plugin-whoami" "^0.2.2"
     "@vtex/cli-plugin-workspace" "^1.0.1"
     "@vtex/node-error-report" "^0.0.2"
