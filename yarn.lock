@@ -9004,7 +9004,7 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vtex@3.7.3-beta:
+vtex@^3.7.3-beta:
   version "3.7.3-beta"
   resolved "https://registry.yarnpkg.com/vtex/-/vtex-3.7.3-beta.tgz#053b56f5e12d1354f3105be48d4c111444c94f2a"
   integrity sha512-P8+8A8sd7ALfiBMeE4yrwyooabZu2u9xq/wM2HCCXIbG5LsudRHhtww6sWeBAYsTZt3q3xRpdCYTeIUES86q6g==
