@@ -1,9 +1,9 @@
-import { Command, flags } from '@oclif/command'
+import { flags } from '@oclif/command'
 import { CustomCommand } from 'vtex'
 
 import { submitApp } from '../modules/submit'
 
-export default class Submit extends Command {
+export default class Submit extends CustomCommand {
   public static description =
     'Submits the current app, or an specified one, to validation from VTEX App Store team'
 

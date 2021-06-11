@@ -1,7 +1,9 @@
-import { AppClient, InstanceOptions, IOContext } from '@vtex/api'
+import type { InstanceOptions, IOContext } from '@vtex/api'
+import { AppClient } from '@vtex/api'
 import { IOClientFactory } from 'vtex'
 
-export default class AppStoreSeller extends AppClient {
+export class AppStoreSeller extends AppClient {
+  public static readonly DEFAULT_RETRIES = 1
   public static readonly DEFAULT_TIMEOUT = 30000
 
   private readonly routes = {
@@ -16,6 +18,7 @@ export default class AppStoreSeller extends AppClient {
       AppStoreSeller,
       customContext,
       {
+        retries: AppStoreSeller.DEFAULT_RETRIES,
         timeout: AppStoreSeller.DEFAULT_TIMEOUT,
         ...customOptions,
       }
