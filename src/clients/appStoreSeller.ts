@@ -2,7 +2,7 @@ import type { InstanceOptions, IOContext } from '@vtex/api'
 import { AppClient } from '@vtex/api'
 import { IOClientFactory } from 'vtex'
 
-export class AppStoreSeller extends AppClient {
+export default class AppStoreSeller extends AppClient {
   public static readonly DEFAULT_RETRIES = 1
   public static readonly DEFAULT_TIMEOUT = 30000
 
