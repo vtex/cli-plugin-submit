@@ -1,7 +1,7 @@
 {
   "name": "@vtex/cli-plugin-submit",
   "description": "Toolbelt plugin for the 'submit' command",
-  "version": "0.3.0-beta.1",
+  "version": "0.3.0-beta.2",
   "bugs": "https://github.com/vtex/cli-plugin-submit/issues",
   "dependencies": {
     "@oclif/command": "^1",
