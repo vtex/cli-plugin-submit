@@ -6,7 +6,7 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "@vtex/api": "^6.42.1",
+    "@vtex/api": "3.77.0",
     "inquirer": "^7.3.3",
     "ramda": "^0.27.1",
     "tslib": "^2.0.1"
