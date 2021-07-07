@@ -1,12 +1,14 @@
 {
   "name": "@vtex/cli-plugin-submit",
   "description": "Toolbelt plugin for the 'submit' command",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "bugs": "https://github.com/vtex/cli-plugin-submit/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
+    "@vtex/api": "3.77.0",
     "inquirer": "^7.3.3",
+    "ramda": "^0.27.1",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
@@ -31,7 +33,7 @@
     "ts-jest": "^25.2.1",
     "ts-node": "^8",
     "typescript": "^3.9.7",
-    "vtex": "^2.115.0"
+    "vtex": "^2.128.0"
   },
   "engines": {
     "node": ">=8.0.0"
