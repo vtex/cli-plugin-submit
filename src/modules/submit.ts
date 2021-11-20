@@ -94,8 +94,6 @@ export const submitApp = async (appToSubmit?: string) => {
     })
 
     logger.info(Messages.OPENING_PULL_REQUEST)
-
-    logger.info(Messages.appSubmitted(appToSubmit))
     logger.info(Messages.CHECK_EMAIL)
     logger.info(Messages.checkPullRequest(vendorAndName))
   } catch (e) {
