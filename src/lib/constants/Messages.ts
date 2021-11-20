@@ -17,7 +17,7 @@ export const Messages = {
   WAIT_VALIDATION: 'We are validating your data, please wait a few seconds',
 
   OPENING_PULL_REQUEST:
-    "We will open a Pull Request with your app's code. You'll be able to check the review status directly from Gitub.",
+    "We will open a Pull Request with your app's code. You'll be able to check the review status directly from Gitub. This may take some minutes.",
   CHECK_EMAIL:
     "You'll receive an e-mail inviting you to the newly-created repository where you'll be able to follow the status",
   checkPullRequest: (vendorAndName: string) =>
