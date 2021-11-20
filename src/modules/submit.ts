@@ -87,7 +87,7 @@ export const submitApp = async (appToSubmit?: string) => {
   logger.info(Messages.WAIT_VALIDATION)
 
   try {
-    const pullRequestUrl = await appStoreSellerClient.submitApp({
+    await appStoreSellerClient.submitApp({
       appId,
       githubUsername,
       liveUrl,
@@ -97,7 +97,7 @@ export const submitApp = async (appToSubmit?: string) => {
 
     logger.info(Messages.appSubmitted(appToSubmit))
     logger.info(Messages.CHECK_EMAIL)
-    logger.info(Messages.checkPullRequestUrl(pullRequestUrl))
+    logger.info(Messages.checkPullRequest(vendorAndName))
   } catch (e) {
     handleSubmitAppError(e)
   }

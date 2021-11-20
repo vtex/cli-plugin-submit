@@ -1,5 +1,3 @@
-import { SubmitResponse } from '../../clients/appStoreSeller'
-
 export const Messages = {
   OBJECT_FORMAT: '%o',
   APP_STORE_SELLER_NOT_FOUND:
@@ -23,6 +21,6 @@ export const Messages = {
   CHECK_EMAIL:
     "You'll receive an e-mail inviting you to the newly-created repository where you'll be able to follow the status",
   appSubmitted: (app?: string) => `We've submitted the app ${app} to review!`,
-  checkPullRequestUrl: (pullRequest?: SubmitResponse) =>
-    `The pull request for this version is at: ${pullRequest}`,
+  checkPullRequest: (vendorAndName: string) =>
+    `When created, the pull request for this version will be at: https://github.com/vtex-reviews/${vendorAndName}/pulls`,
 }
