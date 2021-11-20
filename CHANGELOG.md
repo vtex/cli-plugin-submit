@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Adapt feedback messages, as the PRs will be created asynchronously from now on
+
 ## [0.2.0] - 2020-11-18
 
 ### Changed
