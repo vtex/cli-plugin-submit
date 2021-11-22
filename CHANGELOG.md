@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Adapt feedback messages, as the PRs will be created asynchronously from now on
 
+## [1.0.0] - 2021-07-07
+### Fixed
+- Make dependencies explicit.
+
 ## [0.2.0] - 2020-11-18
 
 ### Changed
