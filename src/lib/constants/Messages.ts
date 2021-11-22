@@ -21,5 +21,5 @@ export const Messages = {
   CHECK_EMAIL:
     "You'll receive an e-mail inviting you to the newly-created repository where you'll be able to follow the status",
   checkPullRequest: (vendorAndName: string) =>
-    `When created, the pull request for this version will be at: https://github.com/vtex-reviews/${vendorAndName}/pulls`,
+    `When created, the pull request for this version will be made available at: https://github.com/vtex-reviews/${vendorAndName}/pulls`,
 }
