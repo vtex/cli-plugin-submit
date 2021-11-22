@@ -1,5 +1,3 @@
-import { SubmitResponse } from '../../clients/appStoreSeller'
-
 export const Messages = {
   OBJECT_FORMAT: '%o',
   APP_STORE_SELLER_NOT_FOUND:
@@ -19,10 +17,9 @@ export const Messages = {
   WAIT_VALIDATION: 'We are validating your data, please wait a few seconds',
 
   OPENING_PULL_REQUEST:
-    "We will open a Pull Request with your app's code. You'll be able to check the review status directly from Gitub.",
+    "We will open a Pull Request with your app's code. You'll be able to check the review status directly from GitHub. This may take some minutes.",
   CHECK_EMAIL:
     "You'll receive an e-mail inviting you to the newly-created repository where you'll be able to follow the status",
-  appSubmitted: (app?: string) => `We've submitted the app ${app} to review!`,
-  checkPullRequestUrl: (pullRequest?: SubmitResponse) =>
-    `The pull request for this version is at: ${pullRequest}`,
+  checkPullRequest: (vendorAndName: string) =>
+    `When created, the pull request for this version will be made available at: https://github.com/vtex-reviews/${vendorAndName}/pulls`,
 }
