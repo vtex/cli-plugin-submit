@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Uses new app-store-seller major for client
 ## [1.1.0] - 2021-11-22
 
 ### Changed
