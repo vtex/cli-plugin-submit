@@ -1,7 +1,7 @@
 export const Messages = {
   OBJECT_FORMAT: '%o',
   APP_STORE_SELLER_NOT_FOUND:
-    'You must have the `vtex.app-store-seller` app installed in order to submit apps.',
+    'You must have the `vtex.app-store-seller`@1.x app installed in order to submit apps.',
 
   APP_STORE_SELLER_NOT_CONFIGURED:
     'This account is not configured to submit apps to VTEX App Store. Please, follow the steps described on: http://bit.ly/vtex-app-store-pub',
