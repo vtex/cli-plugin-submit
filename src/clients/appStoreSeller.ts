@@ -23,7 +23,7 @@ export default class AppStoreSeller extends AppClient {
   }
 
   constructor(context: IOContext, options?: InstanceOptions) {
-    super('vtex.app-store-seller@1.x', { ...context }, options)
+    super('vtex.app-store-seller@0.x', { ...context }, options)
   }
 
   public submitApp = async (data: SubmitInput) => {
