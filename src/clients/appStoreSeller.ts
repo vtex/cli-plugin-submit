@@ -27,12 +27,7 @@ export default class AppStoreSeller extends AppClient {
   }
 
   public submitApp = async (data: SubmitInput) => {
-    const response = await this.http.post<SubmitResponse>(
-      this.routes.reviews(),
-      data
-    )
-
-    return response
+    return this.http.post(this.routes.reviews(), data)
   }
 }
 
@@ -40,9 +35,4 @@ type SubmitInput = {
   appId: string
   liveUrl: string
   githubUsername: string
-}
-
-export type SubmitResponse = {
-  created: boolean
-  pullRequestUrl: string
 }
