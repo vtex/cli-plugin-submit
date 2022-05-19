@@ -29,7 +29,9 @@ const handleSubmitAppError = (e: any) => {
     }
 
     default: {
-      logger.error(e.response?.data)
+      e.response
+        ? logger.error(e.response.data.message)
+        : logger.error(e.message)
     }
   }
 }
