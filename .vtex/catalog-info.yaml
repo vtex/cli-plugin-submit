@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cli-plugin-submit
+  description: CLI plugin that allows users to submit their applications
+  tags:
+    - typescript
+    - oclif
+  annotations:
+    vtex.com/janus-acronym: ""
+    vtex.com/o11y-os-index: ""
+    grafana/dashboard-selector: ""
+    github.com/project-slug: vtex/cli-plugin-submit
+    backstage.io/techdocs-ref: dir:../
+spec:
+  lifecycle: stable
+  owner: apps
+  type: cli-plugin
+  dependsOn: []
+  subcomponentOf: toolbelt
