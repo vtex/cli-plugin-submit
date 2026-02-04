@@ -13,6 +13,7 @@ metadata:
     github.com/project-slug: vtex/cli-plugin-submit
     backstage.io/techdocs-ref: dir:../
     vtex.com/application-id: 51CB71JE
+    vtex.com/platform-flow-id: CommDev#1,Merch#3
 spec:
   lifecycle: stable
   owner: te-0029
