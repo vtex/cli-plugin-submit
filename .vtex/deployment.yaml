@@ -1,4 +1,5 @@
 - name: cli-plugin-submit
+  referenceId: PLACEHOLDER
   build:
     provider: dkcicd
     pipelines:
@@ -14,3 +15,17 @@
               - "docs/**"
               - README.md
               - .vtex/deployment.yaml
+      - name: node-ci-v2
+        parameters:
+          sonarProjectName: cli-plugin-submit
+          nodeVersion: 20-bookworm
+          nodeCommands:
+            - test -- --passWithNoTests --coverage
+        runtime:
+          architecture: amd64
+        when:
+          - event: pull_request
+            source: branch
+          - event: push
+            source: branch
+            regex: master
