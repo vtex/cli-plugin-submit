@@ -14,6 +14,8 @@ metadata:
     backstage.io/techdocs-ref: dir:../
     vtex.com/application-id: 51CB71JE
     vtex.com/platform-flow-id: CommDev#1,Merch#3
+    vtex.com/sdd-check-skip: 'true'
+    vtex.com/sdd-check-skip-reason: Public puglin for vtex toolbelt
 spec:
   lifecycle: stable
   owner: te-0029
