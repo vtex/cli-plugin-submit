@@ -1,5 +1,5 @@
 - name: cli-plugin-submit
-  referenceId: PLACEHOLDER
+  referenceId: 51CB71JE
   build:
     provider: dkcicd
     pipelines:
