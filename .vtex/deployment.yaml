@@ -18,6 +18,7 @@
       - name: node-ci-v2
         parameters:
           sonarProjectName: cli-plugin-submit
+          gitBaseBranchName: "master"
           nodeVersion: 20-bookworm
           nodeCommands:
             - test -- --passWithNoTests --coverage
