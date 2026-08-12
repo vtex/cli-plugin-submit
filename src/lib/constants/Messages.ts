@@ -11,6 +11,10 @@ export const Messages = {
 
   APP_NOT_INSTALLED:
     "The app you're trying to submit must be installed on this workspace.",
+
+  VALIDATION_FAILED_UNKNOWN_REASON:
+    'Your submission could not be validated. Make sure your app is both published and deployed before running `vtex submit`, then try again. If the problem persists, contact VTEX support.',
+
   ENTER_GITHUB_USERNAME: 'Enter your Github username',
   ENTER_STATUS_CHECK_URL:
     'Enter a URL from where we can test your app working. It can be in your workspace',

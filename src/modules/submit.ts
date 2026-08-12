@@ -14,7 +14,20 @@ const handleSubmitAppError = (e: any) => {
 
   switch (status) {
     case 400: {
-      logger.error(Messages.OBJECT_FORMAT, JSON.parse(response?.data?.message))
+      try {
+        logger.error(
+          Messages.OBJECT_FORMAT,
+          JSON.parse(response?.data?.message)
+        )
+      } catch {
+        // response.data.message isn't valid JSON (e.g. an upstream service propagated
+        // a raw error string instead of a structured validation payload). Surface a
+        // clear, actionable message instead of letting the SyntaxError bubble up raw.
+        logger.error(
+          response?.data?.message ?? Messages.VALIDATION_FAILED_UNKNOWN_REASON
+        )
+      }
+
       break
     }
 
