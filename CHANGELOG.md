@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Publish to npm via DK-CICD `npm-publish-v1` and GitHub Trusted Publishing instead of the `NPM_TOKEN` Actions workflows
+
 ## [1.1.5] - 2026-08-24
 
 ### Fixed
