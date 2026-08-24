@@ -7,14 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Revert
-
-- Use old app-store-seller major for client
-
 ### Fixed
 
-- Use new app-store-seller major for client
-- Shows error message when an API call request didn't complete, such as in a Timeout
+- Handle non-JSON error messages in submit 400 responses instead of crashing the CLI
 
 ## [1.1.0] - 2021-11-22
 
