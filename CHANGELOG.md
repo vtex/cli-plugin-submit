@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.5] - 2026-08-24
+
 ### Fixed
 
 - Handle non-JSON error messages in submit 400 responses instead of crashing the CLI
@@ -39,3 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2020-09-07
 
 ### Changed
+
+
+[Unreleased]: https://github.com/vtex/cli-plugin-submit/compare/v1.1.5...HEAD
+[1.1.5]: https://github.com/vtex/cli-plugin-submit/compare/v1.1.4...v1.1.5
