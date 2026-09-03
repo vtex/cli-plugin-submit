@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.6] - 2026-09-03
+
+### Fixed
+
+- Handle non-JSON error messages in submit 400 responses instead of crashing the CLI (was tagged as 1.1.5 but never published to npm)
+
 ### Changed
 
 - Publish to npm via DK-CICD `npm-publish-v1` and GitHub Trusted Publishing instead of the `NPM_TOKEN` Actions workflows
@@ -47,5 +53,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 
-[Unreleased]: https://github.com/vtex/cli-plugin-submit/compare/v1.1.5...HEAD
+[Unreleased]: https://github.com/vtex/cli-plugin-submit/compare/v1.1.6...HEAD
+[1.1.6]: https://github.com/vtex/cli-plugin-submit/compare/v1.1.5...v1.1.6
 [1.1.5]: https://github.com/vtex/cli-plugin-submit/compare/v1.1.4...v1.1.5
