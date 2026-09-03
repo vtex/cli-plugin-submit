@@ -30,3 +30,17 @@
           - event: push
             source: branch
             regex: master
+
+      - name: npm-publish-v1
+        parameters:
+          nodeVersion: "20-bookworm"
+          packageManager: yarn
+          skipInstall: false
+          nodeCommands:
+            - build
+          publishViaGithubWorkflow: true
+          workflowFile: publish-npm.yml
+          workflowVersion: '{{ ref_name }}'
+        when:
+          - event: push
+            source: tag
